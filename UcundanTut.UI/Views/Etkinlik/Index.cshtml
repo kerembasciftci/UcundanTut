@@ -1,0 +1,64 @@
+﻿@using UcundanTut.Entity.Concrete
+@model List<Etkinlik>
+
+
+<html>
+<head>
+
+</head>
+<body>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+    @*
+    <div class="row">
+
+    <div class="dropdown col-5">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Şehirler
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+    </div>
+    *@
+    <div class="bg-info">
+        @foreach (var item in Model)
+        {
+
+            <div class="container">
+                <div class="card mb-3" style="max-width: 400px;">
+                    <div class="card-header bg-dark text-white">
+                        <div class="d-flex align-items-center">
+                            <img src="dernek-logo.png" alt="Dernek Logo" width="30" height="30" class="mr-2">
+                            <h5 class="card-title mb-0">@item.EtkinlikAd</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@item.EtkinlikAciklama</p>
+                        <p class="card-text">@item.EtkinlikSehri</p>
+                        <p class="card-text">@item.BaslangicZamani</p>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+
+    @*</div>*@
+
+
+
+
+</body>
+</html>
