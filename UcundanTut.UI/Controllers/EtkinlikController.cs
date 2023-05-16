@@ -6,10 +6,10 @@ namespace UcundanTut.UI.Controllers
 {
     public class EtkinlikController : Controller
     {
-        EtkinlikManager etkinlikManager = new EtkinlikManager(new EfEtkinlikDal());
+        EtkinlikManager etkinlikManager = new EtkinlikManager(new EfEtkinlikDal(),new EfDernekDal());
         public IActionResult Index()
         {
-            var etkinlikler = etkinlikManager.GetAll();
+            var etkinlikler = etkinlikManager.GetAllDto();
             return View(etkinlikler);
         }
     }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UcundanTut.DataAccess.Concrete;
 
@@ -11,9 +12,11 @@ using UcundanTut.DataAccess.Concrete;
 namespace UcundanTut.DataAccess.Migrations
 {
     [DbContext(typeof(UcundanTutContext))]
-    partial class UcundanTutContextModelSnapshot : ModelSnapshot
+    [Migration("20230515211749_miglogo")]
+    partial class miglogo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,10 +38,6 @@ namespace UcundanTut.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DernekAd")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DernekLogo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -74,6 +73,10 @@ namespace UcundanTut.DataAccess.Migrations
 
                     b.Property<int>("DernekId")
                         .HasColumnType("int");
+
+                    b.Property<string>("DernekLogo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EtkinlikAciklama")
                         .IsRequired()

@@ -15,5 +15,6 @@ namespace UcundanTut.Entity.Concrete
         public string DernekMail { get; set; }
         public string DernekTelefon { get; set; }
         public ICollection<Etkinlik> Etkinlikler { get; set; }
+        public string DernekLogo { get; set; }
     }
 }

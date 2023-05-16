@@ -1,5 +1,5 @@
-﻿@using UcundanTut.Entity.Concrete
-@model List<Etkinlik>
+﻿@using UcundanTut.Entity.DTOs
+@model List<EtkinlikDto>
 
 
 <html>
@@ -14,48 +14,64 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 
 
-    @*
-    <div class="row">
+    <div class="row " style="background-color:00a86b">
 
-    <div class="dropdown col-5">
-    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Şehirler
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    </div>
-    </div>
-    *@
-    <div class="bg-info">
-        @foreach (var item in Model)
-        {
+        <div class="col-2">
+            <div class="d-flex flex-column align-items-center">
+                <h2 class="text-center">Filtre Menüsü</h2><br>
 
-            <div class="container">
-                <div class="card mb-3" style="max-width: 400px;">
-                    <div class="card-header bg-dark text-white">
-                        <div class="d-flex align-items-center">
-                            <img src="dernek-logo.png" alt="Dernek Logo" width="30" height="30" class="mr-2">
-                            <h5 class="card-title mb-0">@item.EtkinlikAd</h5>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">@item.EtkinlikAciklama</p>
-                        <p class="card-text">@item.EtkinlikSehri</p>
-                        <p class="card-text">@item.BaslangicZamani</p>
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle" type="button" id="cityDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Şehir Seç
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="cityDropdown">
+                        <!-- 81 ilin listesini dropdown menüye ekliyoruz -->
+                        <a class="dropdown-item" href="#">Adana</a>
+                        <a class="dropdown-item" href="#">Adıyaman</a>
+                        <!-- Diğer illeri buraya ekleyebilirsiniz -->
+                        <a class="dropdown-item" href="#">Zonguldak</a>
                     </div>
                 </div>
+
+                <br>
+
+                <button class="btn btn-secondary">Filtrele</button>
+                <!-- Diğer filtreleme özellikleri için düğmeleri buraya ekleyebilirsiniz -->
+
             </div>
+        </div>
 
-        }
+
+        <div class="col-10">
+            <div class=" row justify-content-center">
+                @foreach (var item in Model)
+                {
+
+                    <div style="background-color: #F5F5F5	; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 500px; font-family: Arial, sans-serif; position: relative;margin:20px">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                            <div style="display: flex; align-items: center;">
+                                <img style="width: 50px; height: 50px; border-radius: 50%; object-fit: contain; margin-right: 10px;" src="@item.DernekLogo" alt="Dernek Logosu">
+                                <h3 style="font-size: 20px; color:black;">@item.DernakAd</h3>
+                            </div>
+                            <a href="etkinlik_detay.html" style="text-decoration: none; background-color: #007bff; color: #ffffff; padding: 10px 20px; border-radius: 5px; font-size: 14px; position: absolute; bottom: 20px; right: 20px;">Detay</a>
+                        </div>
+                        <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 10px; color: #333;">@item.EtkinlikAd</h1>
+                        <p style="font-size: 18px; margin-bottom: 20px;">@item.EtkinlikAciklama</p>
+                        <p style="font-size: 16px; color: #6c757d; margin-bottom: 10px;">Mekan: @item.EtkinlikMekan</p>
+                        <p style="font-size: 16px; color: #6c757d; margin-bottom: 10px;">Tarih: @item.BaslangicZamani</p>
+                        <p style="font-size: 16px; color: #6c757d;">Şehir: @item.EtkinlikSehri</p>
+                    </div>
+                }
+            </div>
+        </div>
+
     </div>
-
-    @*</div>*@
 
 
 
