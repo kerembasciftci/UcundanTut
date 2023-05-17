@@ -34,6 +34,19 @@ namespace UcundanTut.Business.Concrete
             return _etkinlikDal.GetAll();
         }
 
+        public List<Etkinlik> GetAllBySehir(string sehir)
+        {
+            if(sehir == null)
+            {
+                return _etkinlikDal.GetAll();
+            }
+            else
+            {
+
+                return _etkinlikDal.GetAll(s => s.EtkinlikSehri == sehir);
+            }
+        }
+
         public List<EtkinlikDto> GetAllDto()
         {
             var query = from e in GetAll()
@@ -63,5 +76,7 @@ namespace UcundanTut.Business.Concrete
         {
             _etkinlikDal.Update(etkinlik);
         }
+
+       
     }
 }

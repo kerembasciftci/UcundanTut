@@ -1,12 +1,12 @@
-﻿@using UcundanTut.Entity.DTOs
-@model List<EtkinlikDto>
+﻿@using UcundanTut.Entity.Concrete
+@model List<Etkinlik>
 
 
 <html>
 <head>
 
 </head>
-<body>
+<body style="background-color:00a86b">
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -20,29 +20,24 @@
 
 
 
-    <div class="row " style="background-color:00a86b">
+    <div class="row">
 
         <div class="col-2">
             <div class="d-flex flex-column align-items-center">
                 <h2 class="text-center">Filtre Menüsü</h2><br>
 
-                <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle" type="button" id="cityDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Şehir Seç
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="cityDropdown">
-                        <!-- 81 ilin listesini dropdown menüye ekliyoruz -->
-                        <a class="dropdown-item" href="#">Adana</a>
-                        <a class="dropdown-item" href="#">Adıyaman</a>
-                        <!-- Diğer illeri buraya ekleyebilirsiniz -->
-                        <a class="dropdown-item" href="#">Zonguldak</a>
-                    </div>
+                <div>
+                    <form method="get" id="filter">
+                        <div>
+                            <input name="sehir" class="form-control" placeholder="Şehir giriniz..." />
+                        </div>
+                        <button class="btn">Filtrele</button>
+                    </form>
                 </div>
 
                 <br>
 
-                <button class="btn btn-secondary">Filtrele</button>
-                <!-- Diğer filtreleme özellikleri için düğmeleri buraya ekleyebilirsiniz -->
+
 
             </div>
         </div>
@@ -56,8 +51,8 @@
                     <div style="background-color: #F5F5F5	; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 500px; font-family: Arial, sans-serif; position: relative;margin:20px">
                         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
                             <div style="display: flex; align-items: center;">
-                                <img style="width: 50px; height: 50px; border-radius: 50%; object-fit: contain; margin-right: 10px;" src="@item.DernekLogo" alt="Dernek Logosu">
-                                <h3 style="font-size: 20px; color:black;">@item.DernakAd</h3>
+                                @*                                <img style="width: 50px; height: 50px; border-radius: 50%; object-fit: contain; margin-right: 10px;" src="@item.DernekLogo" alt="Dernek Logosu">
+                            <h3 style="font-size: 20px; color:black;">@item.DernekAd</h3>*@
                             </div>
                             <a href="etkinlik_detay.html" style="text-decoration: none; background-color: #007bff; color: #ffffff; padding: 10px 20px; border-radius: 5px; font-size: 14px; position: absolute; bottom: 20px; right: 20px;">Detay</a>
                         </div>

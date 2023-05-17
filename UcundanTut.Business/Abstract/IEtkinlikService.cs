@@ -16,5 +16,6 @@ namespace UcundanTut.Business.Abstract
         public List<Etkinlik> GetAll();
         public Etkinlik GetById(int id);
         public List<EtkinlikDto> GetAllDto();
+        public List<Etkinlik> GetAllBySehir(string sehir);
     }
 }

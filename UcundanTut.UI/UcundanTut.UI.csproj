@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UcundanTut.Business\UcundanTut.Business.csproj" />
+    <ProjectReference Include="..\UcundanTut.DataAccess\UcundanTut.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>
